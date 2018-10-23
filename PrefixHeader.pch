@@ -1,0 +1,269 @@
+//
+//  PrefixHeader.pch
+//  Greadeal
+//
+//  Created by Elsa on 15/5/8.
+//  Copyright (c) 2015年 Elsa. All rights reserved.
+//
+
+#ifndef Greadeal_PrefixHeader_pch
+#define Greadeal_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define  needPayType     4
+
+#define  prePageNumber   8
+#define  LineCount_Space 8
+
+#define  LineCount_Category_Ipad_View_Width 87
+#define  LineCount_Category_Ipad_View_Height 118
+
+#define  LineCount_Hotest_View_Width 150
+#define  LineCount_Hotest_View_Height 160
+
+#define  PRODUCTNAME_TEXT_FONT_SIZE  15
+
+#define  kRefreshkShowAll        60
+#define  kThumbsViewMoreHeight   20
+
+#define  pageControlHeight       15
+
+#define  maxAddressLength 200
+#define  maxEmailLength   40
+#define  maxCountryLength 5
+#define  maxPhoneLength   16
+#define  maxPassLength    20
+#define  maxNameLength    20
+#define  maxVerifyLength  4
+
+#define  MinPassLength    4
+#define  MinPhoneLength   7
+#define  MinCountryLength 2
+#define  MinNameLength    3
+
+#define  currencyLen      1
+
+#define  exCnyRate        1.83
+#define  exUsdRate        0.2723
+
+#define  memberIconWidth   30
+#define  memberIconHeight  20
+
+#ifdef MO_DEBUG
+#  define LOG(...) NSLog(__VA_ARGS__)
+#  define LOG_CURRENT_METHOD NSLog(NSStringFromSelector(_cmd))
+#else
+#  define LOG(...) ;
+#  define LOG_CURRENT_METHOD ;
+#endif
+
+typedef enum LoginType {
+    UNLOGIN  = 0,
+    GREADEAL,
+    FACEBOOK,
+    WECHAT,
+    QQ
+} LoginType;
+
+//0 sale //1 super 2//live
+typedef enum classType {
+    SALE  = 0,
+    SUPER,
+    LIVE
+} classType;
+
+
+typedef enum vourcherOrderSearchType {
+    VOUCHER_ORDER_ALL  = 0,
+    VOUCHER_ORDER_AWAITING_PAYMENT  = 1,
+    VOUCHER_ORDER_PAID  = 2,
+    VOUCHER_ORDER_CANCELED  = 6,
+} vourcherOrderSearchType;
+
+//typedef enum vourcherOrderStatusType {
+//    VOUCHER_ORDER_STATUS_UNKNOW   = 0,
+//    VOUCHER_ORDER_STATUS_NEW  = 1,
+//    VOUCHER_ORDER_STATUS_PAID  = 2,
+//    VOUCHER_ORDER_STATUS_READYTOSHIP  = 3,
+//    VOUCHER_ORDER_STATUS_SHIPPED  = 4,
+//    VOUCHER_ORDER_STATUS_COMPLETE  = 5,
+//    VOUCHER_ORDER_STATUS_CANCELED  = 6,
+//    VOUCHER_ORDER_STATUS_EXPIRED  = 7,
+//    VOUCHER_ORDER_STATUS_APPLYRETURN  = 8,
+//    VOUCHER_ORDER_STATUS_REFUSERETURN  = 9,
+//    VOUCHER_ORDER_STATUS_COMPLETERETURN  = 10,
+//} vourcherOrderStatusType;
+
+
+typedef enum vourchersSearchType {
+    VOUCHERS_ALL   = 0,
+    VOUCHERS_AWAITING_USE  = 1,
+    VOUCHERS_USED  = 2,
+    VOUCHERS_RETURNS  = 3,
+} vourchersSearchType;
+
+typedef enum categoryType {
+    CATEGORY_DISCOUNT_STORE   = 0,
+    CATEGORY_ALL_STORE  = 1,
+    CATEGORY_BLUE_STORE  = 2,
+    CATEGORY_GOLD_STORE  = 3,
+    CATEGORY_PLATINUM_STORE  = 4,
+} categoryType;
+
+typedef enum memberLevel {
+    MEMBER_NON   = 0,
+    MEMBER_BLUE  = 1,
+    MEMBER_GOLD  = 2,
+    MEMBER_PLATINUM  = 3,
+    MEMBER_SHOPPING  = 4,
+} memberLevel;
+
+#import "WCDatabaseManager.h"
+#import "MOColor.h"
+
+#import "UIImage+MOAdditions.h"
+#import "UIImageView+WebCache.h"
+
+#import "AFURLConnectionOperation.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFHTTPRequestOperationManager.h"
+
+#import "GDSettingManager.h"
+#import "GDPublicManager.h"
+#import "ProgressHUD.h"
+
+#import "UIViewController+MOAdditions.h"
+
+#import "UIArabicTableViewCell.h"
+#import "UIArabicTableViewCell+FlatUI.h"
+
+#import "MOUtilities.h"
+
+#import "NSString+Addtional.h"
+
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+#import "weixinAccountManage.h"
+#import "facebookAccountManage.h"
+#import "qqAccountManage.h"
+#import "whatsappAccountManage.h"
+
+#import "ACPButton.h"
+#import "UIAlertView+Blocks.h"
+#import "UILabel+Addtional.h"
+
+#import "GDOrderCheck.h"
+#import "FTLocationManager.h"
+
+#import "TTTAttributedLabel.h"
+
+#import <AlipaySDK/AlipaySDK.h>
+#import "GDEtisalat.h"
+
+#define kNotificationSwitchLanagues        @"kNotificationSwitchLanagues"
+
+#define kNotificationDidLoginSuccess       @"Notification_LoginSuccess"
+#define kNotificationDidLogout             @"Notification_Logout"
+
+#define kNotificationJoinActivity          @"NotificationJoinActivity"
+
+#define kNotificationDidMemberInfo         @"Notification_DidMemberInfo"
+
+#define kNotificationDidSubToCart          @"kNotification_SubToCart"
+#define kNotificationDidAddToCart          @"kNotification_AddToCart"
+
+#define kNotificationDidClearCart          @"kNotification_ClearCart"
+#define kNotificationGetCacheCart          @"kNotification_CacheCart"
+#define kNotificationGetRemindCart         @"kNotification_RemindCart"
+#define kNotificationDeleteVendorCart      @"kNotification_DeleteVendorCart"
+
+#define kNotificationAddNewAddress         @"kNotification_Addnewaddress"
+#define kNotificationGetCountryInfo        @"kNotificationGetCountryInfo"
+
+#define kNotificationGetCountryID          @"kNotificationGetCountryID"
+
+
+#define kShopPay         @"cos"
+#define kCashPay         @"cod"
+#define kPaypal          @"pp_standard"
+#define kVisaPay         @"pp_pro"
+#define kAliPay          @"alipay_direct"
+#define kEtisalat        @"etisalat"
+#define kWechatPay       @"wechatpay"
+#define kMashreqbank     @"mashreqbank"
+
+#define PaypalCurrency   @"USD"
+#define AlipalCurrency   @"CNY"
+
+#define ExText @"ENTEXT"
+#define isCN   @"CN"
+
+#if defined MO_DEBUG
+    #define MainWebPage   @"http://10.0.0.132:88/"
+#else
+    #define MainWebPage   @"http://www.greadeal.com/"
+#endif
+
+#if defined MO_DEBUG
+#define SNSWebPage        @"http://forum.beta.greadeal.com"
+#else
+#define SNSWebPage        @"http://forum.greadeal.com"
+#endif
+
+#define DefaultSysImage   @"http://7xkdae.com5.z0.glb.qiniucdn.com/70c6545898cbbd026317add65e6856a5.jpg"
+
+#define onlineshop       90000
+#define timesale         90001
+#define delivery         90002       
+#define scheduledordering         90004
+
+#define CurrencyFontSize 12
+#define networkRequestTimeout 21
+
+#define TABBARHEIGHT  44
+
+//#define SET_IF_NOT_NULL(TARGET, VAL) if(VAL != [NSNull null] && VAL != nil) { TARGET = VAL; }
+#define SET_IF_NOT_NULL(TARGET, VAL)  { TARGET = VAL; }
+
+#if defined MO_DEBUG
+#define MODebugLayer(view, borderW, borderC)  \
+view.layer.borderWidth = borderW; \
+view.layer.borderColor = borderC;
+
+#else
+#define MODebugLayer(view, borderW, borderC)
+
+#endif
+
+
+#if !defined(MO_INLINE)
+#  if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+#    define MO_INLINE static inline
+#  elif defined(__MWERKS__) || defined(__cplusplus)
+#    define MO_INLINE static inline
+#  elif defined(__GNUC__)
+#    define MO_INLINE static __inline__
+#  else
+#    define MO_INLINE static
+#  endif
+#endif
+
+#define COUNTRY_NAME(code)  [[NSLocale currentLocale] displayNameForKey:NSLocaleCountryCode value:code]
+
+//import if you want to show intro view , you can add currentIntroVersion such as 1,2,3,4,5
+//when you release new version to users,
+#define currentIntroVersion 1  //version 1.0
+
+#endif
+
+//video merger  swift
+//Video Mixer  https://github.com/bcjordan/Video-Tuneup
+//If anyone else requires this same feature for now, here's a couple of links that helped me get started with using AVMutableComposition & AVAssetExportSession to merge/compose multiple video files into a single final video:
+//http://stackoverflow.com/questions/3298290/avasset-and-avassettrack-track-management-in-ios-4-0
+//http://www.iphonedevsdk.com/forum/iphone-sdk-development/101375-ios-5-error-merging-3-videos-avassetexportsession.html
+//http://praveencastelino.blogspot.co.uk/2010/09/create-movie-using-avfoundation.html
+
